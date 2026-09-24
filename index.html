@@ -58,20 +58,41 @@
     margin-top:18px;font-size:clamp(18px,2.6vw,22px);color:var(--muted);
     max-width:520px;
   }
-  .hero .collab{
-    margin-top:32px;display:inline-flex;align-items:center;gap:10px;
+  .hero .tags{
+    margin-top:32px;display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .hero .tags span{
+    display:inline-flex;align-items:center;
     border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--text);
   }
-  .collab .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);}
 
   .frame-strip{
     display:flex;gap:2px;margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   }
-  .frame-strip div{flex:1;aspect-ratio:16/10;background:
+  .frame-strip a{
+    flex:1;aspect-ratio:16/10;background:
      repeating-linear-gradient(135deg, #15181D, #15181D 10px, #191d23 10px, #191d23 20px);
+    display:flex;align-items:center;justify-content:center;position:relative;
+    text-decoration:none;transition:background .2s;
+  }
+  .frame-strip a:hover{background:#191d23;}
+  .frame-strip a .play{
+    width:26px;height:26px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .frame-strip a .play::after{
+    content:"";border-left:7px solid var(--text);border-top:4px solid transparent;
+    border-bottom:4px solid transparent;margin-left:2px;
+  }
+  .frame-strip a .fs-label{
+    position:absolute;bottom:8px;left:8px;right:8px;font-size:10px;color:var(--muted);
+    text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  @media (max-width:640px){
+    .frame-strip a .fs-label{display:none;}
   }
 
-  section{padding:72px 0;border-bottom:1px solid var(--line);}
+  section{padding:72px 0;border-bottom:1px solid var(--line);margin-bottom:14px;}
   .eyebrow-tc{font-size:12px;color:var(--teal);font-family:'Space Grotesk';margin-bottom:14px;}
   .section-title{font-size:clamp(28px,4vw,40px);font-weight:600;max-width:600px;}
   .section-body{margin-top:18px;color:var(--muted);max-width:560px;font-size:16px;}
@@ -101,6 +122,27 @@
   }
   .reel-card .rec span{width:6px;height:6px;border-radius:50%;background:var(--orange);}
   .reel-card p{color:var(--muted);font-size:13px;text-align:center;padding:0 12px;}
+  .reel-card.live{
+    text-decoration:none;color:var(--text);justify-content:flex-end;
+    padding:16px;transition:border-color .2s,transform .15s;
+  }
+  .reel-card.live:hover{border-color:var(--orange);transform:translateY(-2px);}
+  .reel-card.live .play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .reel-card.live .play::after{
+    content:"";border-left:11px solid var(--text);border-top:7px solid transparent;
+    border-bottom:7px solid transparent;margin-left:3px;
+  }
+  .reel-card.live .title{font-size:14px;font-weight:500;position:relative;z-index:1;}
+
+  .embed-wrap{
+    aspect-ratio:9/16;border:1px solid var(--line);overflow:hidden;background:var(--bg-panel);position:relative;
+  }
+  .embed-wrap iframe{width:100%;height:100%;border:0;display:block;}
+  .embed-caption{margin-top:8px;font-size:13px;color:var(--muted);}
 
   /* contact */
   .contact{border-bottom:none;}
@@ -145,15 +187,21 @@
 <header class="hero wrap">
   <div class="tc-mark">— editor de video</div>
   <h1>LeBlanc0-a</h1>
-  <p class="role">Edito shorts y reels pensados para retener, no solo para llenar el feed. Cortes al ritmo, subtítulos que se leen solos y un ojo puesto en lo que hace que alguien se quede viendo.</p>
-  <div class="collab"><span class="dot"></span> Editor actual de <strong>ThanosDead</strong> (streamer en Kick)</div>
-  <div class="frame-strip"><div></div><div></div><div></div><div></div><div></div></div>
+  <p class="role">Edito shorts y reels pensados para retener, no solo para llenar el feed. Trabajo el corte al ritmo, subtítulos dinámicos y el mejor formato para cada plataforma — Instagram, YouTube y TikTok — cuidando que cada video funcione desde el primer segundo, sin perder calidad ni ritmo en la adaptación.</p>
+  <div class="tags"><span>MOVAVI</span><span>Reels virales</span><span>Rápida entrega</span></div>
+  <div class="frame-strip">
+    <a href="https://www.instagram.com/p/DcG23uzOLWW/" target="_blank" rel="noopener"><span class="play"></span><span class="fs-label">Cagaso monumental</span></a>
+    <a href="https://www.instagram.com/p/DXkAgZ3Oa-_/" target="_blank" rel="noopener"><span class="play"></span><span class="fs-label">El menos gaga</span></a>
+    <a href="https://www.instagram.com/p/DdH7v1bupXN/" target="_blank" rel="noopener"><span class="play"></span><span class="fs-label">Onimusha 1</span></a>
+    <a href="https://www.instagram.com/p/DdM1gYOvBqK/" target="_blank" rel="noopener"><span class="play"></span><span class="fs-label">Onimusha 2</span></a>
+    <a href="https://www.instagram.com/p/DXSGpJuOr5x/" target="_blank" rel="noopener"><span class="play"></span><span class="fs-label">Pragmata</span></a>
+  </div>
 </header>
 
 <section id="sobre" class="wrap">
   <div class="eyebrow-tc">00:01:00:00</div>
-  <h2 class="section-title">De la informática a la sala de edición</h2>
-  <p class="section-body">Vengo del mundo de la informática, pero el corte, el ritmo y contar algo en 30 segundos es lo que más me engancha. Hoy edito el contenido de transmisiones en vivo y lo convierto en clips que funcionan en Instagram y YouTube — ese es mi terreno de práctica constante.</p>
+  <h2 class="section-title">Edición con foco en retener la atención</h2>
+  <p class="section-body">Me dedico a convertir contenido largo en clips cortos que se sostienen desde el primer segundo. Trabajo con transmisiones en vivo y las transformo en piezas listas para Instagram, YouTube y TikTok, cuidando el ritmo del corte, el subtitulado y el formato de cada plataforma para que nada se sienta forzado.</p>
 </section>
 
 <section id="servicios" class="wrap">
@@ -170,7 +218,7 @@
     </div>
     <div class="film-row">
       <span class="tc">03</span>
-      <div><h3>Adaptación multi-plataforma</h3><p>Mismo clip, formato correcto para Instagram y YouTube, sin recortes torpes ni texto cortado.</p></div>
+      <div><h3>Adaptación multi-plataforma</h3><p>Mismo clip, formato correcto para Instagram, YouTube y TikTok, sin recortes torpes ni texto cortado.</p></div>
     </div>
   </div>
 </section>
@@ -178,11 +226,38 @@
 <section id="trabajos" class="wrap">
   <div class="eyebrow-tc">00:03:00:00</div>
   <h2 class="section-title">Trabajos</h2>
-  <p class="section-body">Estoy subiendo mis primeros clips editados — esta sección se va a ir llenando con los mejores cortes del canal de ThanosDead y trabajos propios.</p>
+  <p class="section-body">Cortes del canal de ThanosDead, editados y subidos como reels. Tocá cualquiera para verlo en Instagram.</p>
   <div class="reel-grid">
-    <div class="reel-card"><div class="rec"><span></span>PRÓX</div><p>Clip en camino</p></div>
-    <div class="reel-card"><div class="rec"><span></span>PRÓX</div><p>Clip en camino</p></div>
-    <div class="reel-card"><div class="rec"><span></span>PRÓX</div><p>Clip en camino</p></div>
+    <a class="reel-card live" href="https://www.instagram.com/p/DcG23uzOLWW/" target="_blank" rel="noopener">
+      <div class="rec"><span></span>REEL</div>
+      <div class="play"></div>
+      <div class="title">Cagaso monumental</div>
+    </a>
+    <a class="reel-card live" href="https://www.instagram.com/p/DXkAgZ3Oa-_/" target="_blank" rel="noopener">
+      <div class="rec"><span></span>REEL</div>
+      <div class="play"></div>
+      <div class="title">El menos gaga</div>
+    </a>
+    <a class="reel-card live" href="https://www.instagram.com/p/DdH7v1bupXN/" target="_blank" rel="noopener">
+      <div class="rec"><span></span>REEL</div>
+      <div class="play"></div>
+      <div class="title">Onimusha 1</div>
+    </a>
+    <a class="reel-card live" href="https://www.instagram.com/p/DdM1gYOvBqK/" target="_blank" rel="noopener">
+      <div class="rec"><span></span>REEL</div>
+      <div class="play"></div>
+      <div class="title">Onimusha 2</div>
+    </a>
+    <a class="reel-card live" href="https://www.instagram.com/p/DXSGpJuOr5x/" target="_blank" rel="noopener">
+      <div class="rec"><span></span>REEL</div>
+      <div class="play"></div>
+      <div class="title">Pragmata</div>
+    </a>
+    <a class="reel-card live" href="https://instagram.com/LeBlanc0_a" target="_blank" rel="noopener">
+      <div class="rec"><span></span>MÁS</div>
+      <div class="play"></div>
+      <div class="title">Ver todos en Instagram</div>
+    </a>
   </div>
 </section>
 
